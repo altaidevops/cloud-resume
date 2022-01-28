@@ -1,4 +1,4 @@
-
+# Cloud Resume Challenge
 # Creating web cloud resume with AWS Static Website Terraform Module
 
 Terraform module which provision required AWS resources to host a performant and secured static website.
