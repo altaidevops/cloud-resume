@@ -1,7 +1,7 @@
 data "archive_file" "lambda-get-zip" {
   type        = "zip"
-  output_path = "crc/lambda-get.zip"
-  source_file = "/crc/lambda_get_function.py"
+  output_path = "/cloud-resume/lambda-get.zip"
+  source_file = "/cloud-resume/lambda_get_function.py"
 }
 
 resource "aws_lambda_permission" "apigw-lambda-get" {
