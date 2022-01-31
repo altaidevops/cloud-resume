@@ -1,7 +1,7 @@
 data "archive_file" "lambda-inc-zip" {
   type        = "zip"
-  output_path = "/cloud-resume/lambda-inc.zip"
   source_file = "/cloud-resume/lambda_inc_function.py"
+  output_path = "/cloud-resume/lambda-inc.zip"
 }
 
 resource "aws_lambda_permission" "cloudfront-lambda-inc" {
