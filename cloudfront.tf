@@ -44,6 +44,12 @@ resource "aws_cloudfront_distribution" "website_cdn_root" {
       }
     }
 
+       lambda_function_association {
+      event_type   = "viewer-response"
+      lambda_arn   = aws_lambda_function.lambda-inc-function-use1.qualified_arn
+      include_body = false
+    }
+
   }
 
   restrictions {

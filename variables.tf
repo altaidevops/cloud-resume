@@ -14,3 +14,11 @@ variable "tags" {
   default     = {}
   type        = map(string)
 }
+
+variable "region" {
+  default = "us-east-1"
+}
+
+variable "account_id" {
+  default = "045272241161"
+}

@@ -13,5 +13,8 @@ output "website_logs_s3_bucket" {
   value       = aws_s3_bucket.website_logs.bucket
 }
 
+output "apigw-base-url" {
+  value = aws_api_gateway_deployment.apigw-deployment.invoke_url
+}
 
 

@@ -1,7 +1,7 @@
 ## ACM (AWS Certificate Manager)
 # Creates the wildcard certificate *.<yourdomain.com>
 resource "aws_acm_certificate" "wildcard_website" {
-  provider                  = aws.us-east-1
+  provider                  = aws.use1
   domain_name               = var.website-domain-main
   subject_alternative_names = ["*.${var.website-domain-main}"]
   validation_method         = "DNS"
@@ -36,7 +36,7 @@ resource "aws_route53_record" "wildcard_validation" {
 
 # Triggers the ACM wildcard certificate validation event
 resource "aws_acm_certificate_validation" "wildcard_cert" {
-  provider                = aws.us-east-1
+  provider                = aws.use1
   certificate_arn         = aws_acm_certificate.wildcard_website.arn
   validation_record_fqdns = [for k, v in aws_route53_record.wildcard_validation : v.fqdn]
 }
@@ -44,7 +44,7 @@ resource "aws_acm_certificate_validation" "wildcard_cert" {
 
 # Get the ARN of the issued certificate
 data "aws_acm_certificate" "wildcard_website" {
-  provider = aws.us-east-1
+  provider = aws.use1
 
   depends_on = [
     aws_acm_certificate.wildcard_website,
